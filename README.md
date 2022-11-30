@@ -10,11 +10,9 @@ A monitoring system to track and analyse client data as well as on-chain events 
 
 # Architecture
 
-The eth client will be monitored using the ELK stack (Elasticsearc, Logstash and Kibana) as it can scale very well with the increasing data.
+The eth client data will be monitored using the ELK stack (Elasticsearc, Logstash and Kibana) as it can scale very well with the increasing data.
 
-<img src='https://daoagents.s3.amazonaws.com/Quick_ct/arc.png' width="50%" 
-     height="50%" style='display: block;    
+<img src='https://daoagents.s3.amazonaws.com/Quick_ct/arc.png' width="50%" height="50%" style='display: block;    
     margin: 0 auto;'>
-<img src='https://daoagents.s3.amazonaws.com/Quick_ct/pipeline.png' width="50%" 
-     height="50%" style='display: block;    
-    margin: 0 auto;' >
+<img width="60%" height="60%" src='https://daoagents.s3.amazonaws.com/Quick_ct/pipeline.png' style='display: block;    
+    margin: 0 auto;'>
