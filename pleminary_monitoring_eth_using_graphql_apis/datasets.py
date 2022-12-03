@@ -1,8 +1,13 @@
 
+import main
+import api_queries
+import json
+import pandas as pd
+
 
 def eth_data( from_date, till_date):
   #gas cost data
-  gas_cost= get_data(gas_q, from_date, till_date)
+  gas_cost= main.get_data(api_queries.gas_q, from_date, till_date)
   gas_data=json.loads(gas_cost.decode("utf-8"))
   # print(gas_data)
   gas_price=[]
@@ -24,7 +29,7 @@ def eth_data( from_date, till_date):
 
 
   # tx_count
-  tx_data= get_data(tx_count_q, from_date, till_date)
+  tx_data= main.get_data(api_queries.tx_count_q, from_date, till_date)
   tx_data=json.loads(tx_data.decode("utf-8"))
 
   tx_count=[]
@@ -41,7 +46,7 @@ def eth_data( from_date, till_date):
   df_tx['datetime'] = pd.to_datetime(df_tx['datetime']).dt.tz_localize('Europe/London').dt.tz_convert('UTC')
 
   #smart contract
-  smc_call= get_data(smc_count_q, from_date, till_date)
+  smc_call= main.get_data(api_queries.smc_count_q, from_date, till_date)
   smc_call=json.loads(smc_call.decode("utf-8"))
 
   smc_tot_calls=[]
@@ -74,7 +79,7 @@ def eth_data( from_date, till_date):
 
 def beacon_chain_data( from_date, till_date):
   #block count
-  block_info= get_data(block_count_q, from_date, till_date)
+  block_info= main.get_data(api_queries.block_count_q, from_date, till_date)
   block_info=json.loads(block_info.decode("utf-8"))
   # print(gas_data)
   block_count=[]
@@ -95,7 +100,7 @@ def beacon_chain_data( from_date, till_date):
 
   
   # deposit_info
-  deposit_counts= get_data(beacon_chain_deposits_q, from_date, till_date)
+  deposit_counts= main.get_data(api_queries.beacon_chain_deposits_q, from_date, till_date)
   deposit_counts=json.loads(deposit_counts.decode("utf-8"))
 
   deposit_count_res=[]
@@ -125,7 +130,7 @@ def beacon_chain_data( from_date, till_date):
   
   
   #proposer slashing
-  proposer_info= get_data(proposer_slashing_data_q, from_date, till_date)
+  proposer_info= main.get_data(api_queries.proposer_slashing_data_q, from_date, till_date)
   proposer_info=json.loads(proposer_info.decode("utf-8"))
 
   prop_slash=[]
@@ -157,7 +162,7 @@ def beacon_chain_data( from_date, till_date):
   
   
   #attester slashing
-  attester_info= get_data(attester_slashing_q, from_date, till_date)
+  attester_info= main.get_data(api_queries.attester_slashing_q, from_date, till_date)
   attester_info=json.loads(attester_info.decode("utf-8"))
 
   att_slash=[]
