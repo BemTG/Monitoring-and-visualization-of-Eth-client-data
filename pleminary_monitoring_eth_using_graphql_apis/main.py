@@ -57,8 +57,10 @@ def get_data(query,from_date, till_date):
 def ready_data_to_publish(t):
     print( "I'm working...", t)
 
-    beacon_df= datasets.beacon_chain_data
-    eth_df= datasets.Eth_data
+    beacon_df= datasets.beacon_chain_data(today, today)
+    eth_df= datasets.eth_data(today, today)
+    print(beacon_df)
+    print(eth_df)
 
     beacon_gen= generators.generator_beacon_data
     eth_gen=  generators.generator_eth_data
@@ -71,6 +73,7 @@ def ready_data_to_publish(t):
 
 
 if __name__ == '__main__':
+
     schedule.every().day.at("23:59:59").do(ready_data_to_publish,'published data to elk')
     while True:
         print('waiting')
