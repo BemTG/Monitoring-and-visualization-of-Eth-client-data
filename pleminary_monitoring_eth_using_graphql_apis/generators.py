@@ -1,3 +1,12 @@
+import main
+import datasets
+import api_queries
+from elasticsearch import helpers
+from elasticsearch_dsl import connections
+import elasticsearch
+from elasticsearch import Elasticsearch
+
+
 #enumerate through the json df
 def generator_eth_data(df):
     ##loop through each json row (really the df rows)
@@ -46,10 +55,10 @@ def generator_beacon_data(df):
 #         raise StopIteration
 
 
-def ingest_data_to_elk( data_query, gen_query, from_date, till_date):
+def ingest_data_to_elk( df, gen_query, from_date, till_date):
     
-    df=data_query( from_date, till_date)
-    df
+    df=df
+    
     
 #     gen= gen_query(df)
     
@@ -60,12 +69,12 @@ def ingest_data_to_elk( data_query, gen_query, from_date, till_date):
     
     print(next(mycustom))
     
-    ENDPOINT= '<ELK ENDPOINT>'
+    ENDPOINT= '<ELK ENDPOINT>' 
     es= Elasticsearch(timeout=600, hosts=ENDPOINT)
     
     try:
         res = helpers.bulk(es, gen_query(df))
-#         print(res)
+        print(res)
         print('Wowza, its Working')
     except Exception as e:
         print('whoa, something is off')
