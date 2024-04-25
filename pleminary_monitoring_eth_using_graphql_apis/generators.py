@@ -57,9 +57,6 @@ def generator_beacon_data(df):
 
 def ingest_data_to_elk( df, gen_query, from_date, till_date):
     
-    df=df
-    
-    
 #     gen= gen_query(df)
     
     
