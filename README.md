@@ -1,3 +1,12 @@
+# ETH Monitor Recap Video
+
+<div align="center">
+    
+[![YouTube](http://i.ytimg.com/vi/TluyfvBE200/hqdefault.jpg)](https://www.youtube.com/watch?v=TluyfvBE200)
+
+</div>
+
+
 # Monitoring and visualizing Eth client data
 
 Previously, in May there was a 7-block reorg which took the community by surprise and made it challenging to distinguish whether it was a malicious attack or a client implementation issue. After some time, it was later noted that this was due to certain validators not simply upgrading their software (caused by the proposer boost fork upgrade). <br>
@@ -16,3 +25,6 @@ The eth client data will be monitored using the ELK stack (Elasticsearc, Logstas
     margin: 0 auto;'>
 <img width="60%" height="60%" src='https://daoagents.s3.amazonaws.com/Quick_ct/pipeline.png' style='display: block;    
     margin: 0 auto;'>
+
+
+
